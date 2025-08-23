@@ -817,8 +817,8 @@ const renderTopLanguages = (topLangs, options = {}) => {
 
   card.setHideBorder(hide_border);
   card.setHideTitle(hide_title);
-  // Hardcoded background image
-  card.setBackgroundImage("https://github-readme-stats-phi-dusky.vercel.app/api/top-langs/?username=shahmir-k&langs_count=20&hide=html&layout=compact&theme=dark&bg_image=https://thumbs.dreamstime.com/b/creative-floral-template-cherry-blossom-sakura-flower-petal-floral-branch-falling-flying-flow-fall-fly-transparent-cutout-png-331627758.jpg");
+
+  card.setBackgroundImage("https://thumbs.dreamstime.com/b/creative-floral-template-cherry-blossom-sakura-flower-petal-floral-branch-falling-flying-flow-fall-fly-transparent-cutout-png-331627758.jpg")
 
   // Add background image if provided
   if (bg_image) {
