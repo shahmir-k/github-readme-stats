@@ -265,7 +265,7 @@ class Card {
         ${this.backgroundImage ? `
           <defs>
             <pattern id="bg-image" patternUnits="userSpaceOnUse" width="${this.width}" height="${this.height}">
-              <image href="${this.backgroundImage}" width="${this.width}" height="${this.height}" preserveAspectRatio="xMidYMid slice" opacity="0.3"/>
+              <image href="${this.backgroundImage}" width="${this.width}" height="${this.height}" preserveAspectRatio="xMidYMid slice" opacity="0.2"/>
             </pattern>
           </defs>
           <rect
