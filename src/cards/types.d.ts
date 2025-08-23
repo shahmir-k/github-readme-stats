@@ -45,6 +45,7 @@ export type TopLangOptions = CommonOptions & {
   disable_animations: boolean;
   hide_progress: boolean;
   bg_image?: string;
+  bg_image_opacity?: number;
 };
 
 export type WakaTimeOptions = CommonOptions & {

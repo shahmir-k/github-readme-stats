@@ -739,6 +739,7 @@ const renderTopLanguages = (topLangs, options = {}) => {
     border_color,
     disable_animations,
     bg_image,
+    bg_image_opacity = 0.3,
   } = options;
 
   const i18n = new I18n({
@@ -818,11 +819,11 @@ const renderTopLanguages = (topLangs, options = {}) => {
   card.setHideBorder(hide_border);
   card.setHideTitle(hide_title);
 
-  card.setBackgroundImage("https://thumbs.dreamstime.com/b/creative-floral-template-cherry-blossom-sakura-flower-petal-floral-branch-falling-flying-flow-fall-fly-transparent-cutout-png-331627758.jpg")
+  card.setBackgroundImage("https://thumbs.dreamstime.com/b/creative-floral-template-cherry-blossom-sakura-flower-petal-floral-branch-falling-flying-flow-fall-fly-transparent-cutout-png-331627758.jpg", bg_image_opacity)
 
   // Add background image if provided
   if (bg_image) {
-    card.setBackgroundImage(bg_image);
+    card.setBackgroundImage(bg_image, bg_image_opacity);
   }
   
   card.setCSS(

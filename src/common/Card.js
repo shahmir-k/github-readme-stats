@@ -100,10 +100,12 @@ class Card {
 
   /**
    * @param {string} imageUrl The URL of the background image.
+   * @param {number} opacity The opacity of the background image (0.0 to 1.0).
    * @returns {void}
    */
-  setBackgroundImage(imageUrl) {
+  setBackgroundImage(imageUrl, opacity = 0.3) {
     this.backgroundImage = imageUrl;
+    this.backgroundImageOpacity = opacity;
   }
 
   /**
@@ -265,7 +267,7 @@ class Card {
         ${this.backgroundImage ? `
           <defs>
             <pattern id="bg-image" patternUnits="userSpaceOnUse" width="${this.width}" height="${this.height}">
-              <image href="${this.backgroundImage}" width="${this.width}" height="${this.height}" preserveAspectRatio="xMidYMid slice" opacity="0.2"/>
+              <image href="${this.backgroundImage}" width="${this.width}" height="${this.height}" preserveAspectRatio="xMidYMid slice" opacity="${this.backgroundImageOpacity}"/>
             </pattern>
           </defs>
           <rect
