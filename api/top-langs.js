@@ -32,6 +32,8 @@ export default async (req, res) => {
     border_color,
     disable_animations,
     hide_progress,
+    bg_image,
+    bg_image_opacity,
   } = req.query;
   res.setHeader("Content-Type", "image/svg+xml");
 
@@ -100,6 +102,8 @@ export default async (req, res) => {
         locale: locale ? locale.toLowerCase() : null,
         disable_animations: parseBoolean(disable_animations),
         hide_progress: parseBoolean(hide_progress),
+        bg_image,
+        bg_image_opacity: bg_image_opacity ? parseFloat(bg_image_opacity) : undefined,
       }),
     );
   } catch (err) {
