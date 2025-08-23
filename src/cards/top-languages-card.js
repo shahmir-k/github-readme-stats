@@ -822,6 +822,8 @@ const renderTopLanguages = (topLangs, options = {}) => {
   if (bg_image) {
     card.setBackgroundImage(bg_image);
   }
+  
+  // Hardcoded background image
   card.setBackgroundImage("https://i.pinimg.com/736x/66/d3/84/66d384c1d0b2b371debdb48d96e8ec64.jpg");
   card.setCSS(
     `
