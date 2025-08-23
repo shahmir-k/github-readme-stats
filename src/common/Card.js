@@ -246,22 +246,7 @@ class Card {
 
         ${this.renderGradient()}
 
-        ${this.backgroundImage ? `
-          <defs>
-            <pattern id="bg-image" patternUnits="userSpaceOnUse" width="${this.width}" height="${this.height}">
-              <image href="${this.backgroundImage}" width="${this.width}" height="${this.height}" preserveAspectRatio="xMidYMid slice" opacity="0.3"/>
-            </pattern>
-          </defs>
-          <rect
-            x="0.5"
-            y="0.5"
-            rx="${this.border_radius}"
-            height="99%"
-            width="${this.width - 1}"
-            fill="url(#bg-image)"
-            stroke="none"
-          />
-        ` : ""}
+    
 
 
 
