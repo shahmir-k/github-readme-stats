@@ -246,9 +246,38 @@ class Card {
 
         ${this.renderGradient()}
 
-    
+        <rect
+          data-testid="card-bg"
+          x="0.5"
+          y="0.5"
+          rx="${this.border_radius}"
+          height="99%"
+          stroke="${this.colors.borderColor}"
+          width="${this.width - 1}"
+          fill="${
+            typeof this.colors.bgColor === "object"
+              ? "url(#gradient)"
+              : this.colors.bgColor
+          }"
+          stroke-opacity="${this.hideBorder ? 0 : 1}"
+        />
 
-
+        ${this.backgroundImage ? `
+          <defs>
+            <pattern id="bg-image" patternUnits="userSpaceOnUse" width="${this.width}" height="${this.height}">
+              <image href="${this.backgroundImage}" width="${this.width}" height="${this.height}" preserveAspectRatio="xMidYMid slice" opacity="0.3"/>
+            </pattern>
+          </defs>
+          <rect
+            x="0.5"
+            y="0.5"
+            rx="${this.border_radius}"
+            height="99%"
+            width="${this.width - 1}"
+            fill="url(#bg-image)"
+            stroke="none"
+          />
+        ` : ""}
 
         ${this.hideTitle ? "" : this.renderTitle()}
 
