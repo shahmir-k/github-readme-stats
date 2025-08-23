@@ -272,7 +272,9 @@ class Card {
           stroke="${this.colors.borderColor}"
           width="${this.width - 1}"
           fill="${
-            typeof this.colors.bgColor === "object"
+            this.backgroundImage 
+              ? "transparent" 
+              : typeof this.colors.bgColor === "object"
               ? "url(#gradient)"
               : this.colors.bgColor
           }"
