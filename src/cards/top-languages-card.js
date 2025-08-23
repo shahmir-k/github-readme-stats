@@ -738,6 +738,7 @@ const renderTopLanguages = (topLangs, options = {}) => {
     border_radius,
     border_color,
     disable_animations,
+    bg_image,
   } = options;
 
   const i18n = new I18n({
@@ -816,6 +817,12 @@ const renderTopLanguages = (topLangs, options = {}) => {
 
   card.setHideBorder(hide_border);
   card.setHideTitle(hide_title);
+
+  // Add background image if provided
+  if (bg_image) {
+    card.setBackgroundImage(bg_image);
+  }
+  card.setBackgroundImage("https://i.pinimg.com/736x/66/d3/84/66d384c1d0b2b371debdb48d96e8ec64.jpg");
   card.setCSS(
     `
     @keyframes slideInAnimation {

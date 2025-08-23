@@ -849,4 +849,35 @@ describe("Test renderTopLanguages", () => {
       "No languages data.",
     );
   });
+
+  it("should render with background image when bg_image is provided", () => {
+    const testImageUrl = "https://example.com/test-image.jpg";
+    document.body.innerHTML = renderTopLanguages(langs, { bg_image: testImageUrl });
+    
+    // Check if the background image pattern is defined
+    const pattern = document.querySelector("pattern#bg-image");
+    expect(pattern).toBeTruthy();
+    
+    // Check if the image element exists with correct attributes
+    const image = pattern.querySelector("image");
+    expect(image).toBeTruthy();
+    expect(image).toHaveAttribute("href", testImageUrl);
+    expect(image).toHaveAttribute("opacity", "0.1");
+    
+    // Check if the background image rectangle is rendered
+    const bgImageRect = document.querySelectorAll("rect")[1]; // Second rect should be the bg image
+    expect(bgImageRect).toHaveAttribute("fill", "url(#bg-image)");
+  });
+
+  it("should not render background image when bg_image is not provided", () => {
+    document.body.innerHTML = renderTopLanguages(langs, {});
+    
+    // Check that no background image pattern is defined
+    const pattern = document.querySelector("pattern#bg-image");
+    expect(pattern).toBeFalsy();
+    
+    // Check that only one rect exists (the background, not the bg image)
+    const rects = document.querySelectorAll("rect");
+    expect(rects.length).toBe(1);
+  });
 });

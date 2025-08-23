@@ -99,6 +99,14 @@ class Card {
   }
 
   /**
+   * @param {string} imageUrl The URL of the background image.
+   * @returns {void}
+   */
+  setBackgroundImage(imageUrl) {
+    this.backgroundImage = imageUrl;
+  }
+
+  /**
    * @param {string} text The title to set.
    * @returns {void}
    */
@@ -253,6 +261,23 @@ class Card {
           }"
           stroke-opacity="${this.hideBorder ? 0 : 1}"
         />
+
+        ${this.backgroundImage ? `
+          <defs>
+            <pattern id="bg-image" patternUnits="userSpaceOnUse" width="${this.width}" height="${this.height}">
+              <image href="${this.backgroundImage}" width="${this.width}" height="${this.height}" preserveAspectRatio="xMidYMid slice" opacity="0.1"/>
+            </pattern>
+          </defs>
+          <rect
+            x="0.5"
+            y="0.5"
+            rx="${this.border_radius}"
+            height="99%"
+            width="${this.width - 1}"
+            fill="url(#bg-image)"
+            stroke="none"
+          />
+        ` : ""}
 
         ${this.hideTitle ? "" : this.renderTitle()}
 
