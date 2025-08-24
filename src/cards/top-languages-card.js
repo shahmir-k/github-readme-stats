@@ -11,6 +11,7 @@ import {
   measureText,
 } from "../common/utils.js";
 import { langCardLocales } from "../translations.js";
+import { getImageUrl } from "../common/imageMapping.js";
 
 const DEFAULT_CARD_WIDTH = 300;
 const MIN_CARD_WIDTH = 280;
@@ -823,7 +824,8 @@ const renderTopLanguages = (topLangs, options = {}) => {
 
   // Add background image if provided
   if (bg_image) {
-    card.setBackgroundImage(bg_image, bg_image_opacity);
+    const imageUrl = getImageUrl(bg_image);
+    card.setBackgroundImage(imageUrl, bg_image_opacity);
   }
   
   card.setCSS(
